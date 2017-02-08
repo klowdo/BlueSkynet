@@ -1,7 +1,8 @@
 ﻿using BlueSkynet.Domain.Bus;
 using System;
 using System.Collections.Generic;
-using BlueSkynet.Domain.Models.Events;
+using BlueSkynet.Domain.Models;
+using BlueSkynet.Domain.Models.ServiceBus.Events;
 
 namespace BlueSkynet.Domain
 {

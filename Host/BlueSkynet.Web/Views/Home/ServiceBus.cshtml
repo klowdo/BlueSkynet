@@ -1,0 +1,16 @@
+﻿@using System.Threading.Tasks
+@using BlueSkynet.Infrastructure.ReadModels.ServiceBus
+@model IEnumerable<BlueSkynet.Infrastructure.ReadModels.ServiceBus.ServiceBusItemListDto>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+<ul>
+    @foreach (var serviceBusItemListDto in @Model)
+    {
+        <li>@serviceBusItemListDto.Name</li>
+    }
+</ul>

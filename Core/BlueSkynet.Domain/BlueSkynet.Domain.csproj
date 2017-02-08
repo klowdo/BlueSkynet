@@ -46,8 +46,9 @@
     <Compile Include="EventStore\EventBus.cs" />
     <Compile Include="Exceptions\ConcurrencyException.cs" />
     <Compile Include="Exceptions\AggregateNotFoundException.cs" />
-    <Compile Include="Handlers\ServiceBusHandler.cs" />
-    <Compile Include="Models\Events\Event.cs" />
+    <Compile Include="Exceptions\NotFoundExceptions.cs" />
+    <Compile Include="Extentions\ObjectiExtention.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Bus\Handler.cs" />
     <Compile Include="Bus\ICommandSender.cs" />
     <Compile Include="Bus\IEventPublisher.cs" />
@@ -55,26 +56,39 @@
     <Compile Include="Bus\Message.cs" />
     <Compile Include="Extentions\ParatmetersGuardExtention.cs" />
     <Compile Include="Localization\ExceptionMessages.cs" />
-    <Compile Include="Models\Events\ServiceBus\ServiceBusCreated.cs" />
-    <Compile Include="Models\Events\ServiceBus\ServiceBusQueueCreated.cs" />
-    <Compile Include="Models\Events\ServiceBus\ServiceBus.cs" />
-    <Compile Include="Models\ServiceBus\BaseQueue.cs" />
-    <Compile Include="Models\ServiceBus\ServiceBusDto.cs" />
-    <Compile Include="Models\ServiceBus\Topic.cs" />
-    <Compile Include="Models\ServiceBus\Filter.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusRenamed.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusCreated.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusDeactivated.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusDeadLetterQueueCountChanged.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusQueueCountChange.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusQueueCreated.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusQueueRemoved.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusTopicCreated.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusTopicRemoved.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberCreated.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberDeadLetterQueueCountChanged.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberQueueCountChanged.cs" />
+    <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberRemoved.cs" />
+    <Compile Include="Models\ServiceBus\ServiceBusItem.cs" />
+    <Compile Include="Models\ServiceBus\Models\BaseQueue.cs" />
+    <Compile Include="Models\ServiceBus\Models\ServiceBusDto.cs" />
+    <Compile Include="Models\ServiceBus\Models\Topic.cs" />
+    <Compile Include="Models\ServiceBus\Models\Filter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\ServiceBus\Queue.cs" />
-    <Compile Include="Models\ServiceBus\Entity.cs" />
+    <Compile Include="Models\ServiceBus\Models\Queue.cs" />
+    <Compile Include="Models\Entity.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Services\Commands\CreateServiceBusCommand.cs" />
     <Compile Include="Services\Commands\IAsyncCommand.cs" />
     <Compile Include="Services\Commands\ICommand.cs" />
     <Compile Include="Services\ISerializer.cs" />
     <Compile Include="Services\IServiceFactory.cs" />
-    <Compile Include="Services\Queries\IQuery.cs" />
-    <Compile Include="Models\ServiceBus\Subscription.cs" />
+    <Compile Include="Models\ServiceBus\Models\Subscription.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+    <Folder Include="Services\Queries\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

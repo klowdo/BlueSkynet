@@ -1,6 +1,6 @@
 ﻿using BlueSkynet.Domain.Bus;
 using BlueSkynet.Domain.Exceptions;
-using BlueSkynet.Domain.Models.Events;
+using BlueSkynet.Domain.Models;
 using BlueSkynet.Domain.Services;
 using Microsoft.WindowsAzure.Storage.Table;
 using Streamstone;
@@ -59,6 +59,7 @@ namespace BlueSkynet.Infrastructure
 
             foreach (var @event in events)
             {
+                var name = @event.GetType();
                 // publish current event to the bus for further processing by subscribers
                 _publisher.Publish(@event);
             }

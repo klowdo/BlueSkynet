@@ -1,20 +1,24 @@
-﻿using BlueSkynet.Domain.Models.ServiceBus;
+﻿using BlueSkynet.Domain.Models;
+using System;
 using System.Collections.Generic;
 
 namespace BlueSkynet.Domain.Data
 {
     public interface IDataContext
     {
-        IList<ServiceBusDto> ServiceBuses { get; }
+        IDataCollection<T> GetCollection<T>() where T : Entity;
     }
 
-    public class BullshitDb : IDataContext
+    public interface IDataCollection<T> where T : Entity
     {
-        public BullshitDb()
-        {
-            ServiceBuses = new List<ServiceBusDto>();
-        }
+        T FindById(Guid id);
 
-        public IList<ServiceBusDto> ServiceBuses { get; }
+        void Update(T entity);
+
+        void Insert(T entity);
+
+        void Insert(IEnumerable<T> entity);
+
+        IEnumerable<T> FindAll();
     }
 }

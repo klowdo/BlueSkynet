@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "exports": {
+    "BlueSkynet.Infrastructure/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/BlueSkynet.Infrastructure.dll": {}
+      },
+      "runtime": {
+        "../../../../Users/felixsvensson/.nuget/packages/Microsoft.Extensions.Configuration.Abstractions/1.0.0/lib/netstandard1.0/Microsoft.Extensions.Configuration.Abstractions.dll": {},
+        "../../../../Users/felixsvensson/.nuget/packages/Microsoft.Extensions.DependencyInjection.Abstractions/1.0.0/lib/netstandard1.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {},
+        "../../packages/LiteDB.3.0.0/lib/net35/LiteDB.dll": {},
+        "../../packages/Microsoft.Azure.KeyVault.Core.2.0.4/lib/net45/Microsoft.Azure.KeyVault.Core.dll": {},
+        "../../packages/Microsoft.Data.Edm.5.8.2/lib/net40/Microsoft.Data.Edm.dll": {},
+        "../../packages/Microsoft.Data.OData.5.8.2/lib/net40/Microsoft.Data.OData.dll": {},
+        "../../packages/Microsoft.Data.Services.Client.5.8.2/lib/net40/Microsoft.Data.Services.Client.dll": {},
+        "../../packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.dll": {},
+        "../../packages/SimpleInjector.3.3.2/lib/net45/SimpleInjector.dll": {},
+        "../../packages/Streamstone.1.0.3.0/lib/net45/Streamstone.dll": {},
+        "../../packages/System.Spatial.5.8.2/lib/net40/System.Spatial.dll": {},
+        "../../packages/WindowsAzure.Storage.7.2.1/lib/net40/Microsoft.WindowsAzure.Storage.dll": {},
+        "bin/Debug/BlueSkynet.Infrastructure.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/BlueSkynet.Infrastructure.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    },
+    "BlueSkynet.Domain/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.1",
+      "compile": {
+        "bin/Debug/BlueSkynet.Domain.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/BlueSkynet.Domain.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/BlueSkynet.Domain.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

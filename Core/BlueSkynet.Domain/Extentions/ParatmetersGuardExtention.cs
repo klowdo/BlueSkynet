@@ -7,6 +7,11 @@ namespace BlueSkynet.Domain.Extentions
 {
     public static class ParameterGuardExtensions
     {
+        public static void ThrowIfNegative(this int value, string paramName)
+        {
+            if (value < 0) throw new InvalidOperationException($"{paramName} can not be negative");
+        }
+
         public static void ThrowIfNull<T>(this T value, string paramName)
         {
             if (value == null)

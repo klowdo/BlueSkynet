@@ -1,5 +1,5 @@
 ﻿using BlueSkynet.Domain.Bus;
-using BlueSkynet.Domain.Models.Events;
+using BlueSkynet.Domain.Models;
 using BlueSkynet.Domain.Services;
 
 namespace BlueSkynet.Domain.EventStore
@@ -16,13 +16,16 @@ namespace BlueSkynet.Domain.EventStore
         public void Send<T>(T command) where T : Command
         {
             var handler = _handlesFactory.Create<T>();
-            handler.Handle(command);
+            handler.Execute(command);
         }
 
         public void Publish<T>(T @event) where T : Event
         {
-            var handler = _handlesFactory.Create<T>();
-            handler.Handle(@event);
+            var handelers = _handlesFactory.Get<T>();
+            foreach (var handeler in handelers)
+            {
+                handeler.Handle(@event);
+            }
         }
     }
 }

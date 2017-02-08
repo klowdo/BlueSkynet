@@ -70,8 +70,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AutoFakeItEasyDataAttribute.cs" />
     <Compile Include="BusTest.cs" />
+    <Compile Include="Models\SertviceBusItemTopicTest.cs" />
+    <Compile Include="Models\ServiceBusItemQueueTest.cs" />
+    <Compile Include="Models\ServiceBusItemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +84,10 @@
     <ProjectReference Include="..\..\Core\BlueSkynet.Domain\BlueSkynet.Domain.csproj">
       <Project>{16F9EC51-6C12-4C55-B17E-B8AAF777C992}</Project>
       <Name>BlueSkynet.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BlueSkynet.TestUtilities\BlueSkynet.TestUtilities.csproj">
+      <Project>{D645778D-AD05-4FC4-980A-691794131F10}</Project>
+      <Name>BlueSkynet.TestUtilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

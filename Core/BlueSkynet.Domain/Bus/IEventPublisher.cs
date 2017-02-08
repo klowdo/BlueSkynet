@@ -1,4 +1,4 @@
-﻿using BlueSkynet.Domain.Models.Events;
+﻿using BlueSkynet.Domain.Models;
 
 namespace BlueSkynet.Domain.Bus
 {

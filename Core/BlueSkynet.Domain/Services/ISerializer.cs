@@ -6,7 +6,7 @@ namespace BlueSkynet.Domain.Services
     {
         string SerializeObject(object obj);
 
-        T DeserializeObject<T>(T obj);
+        T DeserializeObject<T>(string obj);
 
         object DeserializeObject(string eData, Type getType);
     }
