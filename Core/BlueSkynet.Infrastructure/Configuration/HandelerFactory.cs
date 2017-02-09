@@ -1,4 +1,5 @@
 ﻿using BlueSkynet.Domain.Bus;
+using BlueSkynet.Domain.Models;
 using BlueSkynet.Domain.Services;
 using BlueSkynet.Domain.Services.Commands;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,10 +20,9 @@ namespace BlueSkynet.Infrastructure.Configuration
         public ICommand<T> Create<T>() where T : Command =>
             _serviceProvider.GetRequiredService<ICommand<T>>();
 
-        public IEnumerable<IHandles<T>> Get<T>()
+        public IEnumerable<IHandles<T>> Get<T>() where T : Event
         {
-            var name = typeof(T);
-            return _serviceProvider.GetServices<IHandles<T>>();
+            throw new NotImplementedException();
         }
     }
 }

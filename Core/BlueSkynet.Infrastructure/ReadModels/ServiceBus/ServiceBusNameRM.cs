@@ -1,8 +1,8 @@
-﻿using System;
-using BlueSkynet.Domain.Bus;
+﻿using BlueSkynet.Domain.Bus;
 using BlueSkynet.Domain.Data;
 using BlueSkynet.Domain.Models;
 using BlueSkynet.Domain.Models.ServiceBus.Events;
+using System;
 
 namespace BlueSkynet.Infrastructure.ReadModels.ServiceBus
 {

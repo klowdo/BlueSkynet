@@ -1,6 +1,5 @@
 ﻿using BlueSkynet.Domain.Bus;
 using BlueSkynet.Domain.Data;
-using BlueSkynet.Domain.EventStore;
 using BlueSkynet.Domain.Models.ServiceBus.Events;
 using BlueSkynet.Domain.Repository;
 using BlueSkynet.Domain.Services;
@@ -11,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.WindowsAzure.Storage;
 using SimpleInjector;
-using SimpleInjector.Advanced;
 using System;
 
 namespace BlueSkynet.Infrastructure.Configuration
@@ -31,9 +29,6 @@ namespace BlueSkynet.Infrastructure.Configuration
             container.Register(typeof(ICommand<>), new[] { typeof(ICommand<>).Assembly });
             container.Register(typeof(IAsyncCommand<>), new[] { typeof(IAsyncCommand<>).Assembly });
             container.RegisterCollection(typeof(IHandles<>), typeof(ServiceBusItemListView).Assembly);
-            //container.AppendToCollection(typeof(IHandles<>), typeof(ServiceBusItemListView));
-            //var l = container.GetTypesToRegister(typeof(IHandles<>), new[] { typeof(ServiceBusItemListView).Assembly });
-            //container.Register<IHandles<ServiceBusCreated>, ServiceBusItemListView>();
             container.Register<IDataContext>(() => new LiteBlueSkynetDatabase("MyDb.db"));
             container.Register<IHandlesFactory, HandelerFactory>();
             container.Register<IServiceProvider>(() => container);

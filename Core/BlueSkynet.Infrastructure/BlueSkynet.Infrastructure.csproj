@@ -86,8 +86,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\IHandelerFactory.cs" />
+    <Compile Include="Configuration\HandelerFactory.cs" />
     <Compile Include="Configuration\SimpleInjectorInitializer.cs" />
+    <Compile Include="EventBus.cs" />
     <Compile Include="EventRepository.cs" />
     <Compile Include="LiteBlueSkynetDatabase.cs" />
     <Compile Include="EventStore.cs" />

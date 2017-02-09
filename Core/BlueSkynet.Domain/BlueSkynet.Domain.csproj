@@ -43,7 +43,6 @@
     <Compile Include="AggregateRoot.cs" />
     <Compile Include="Bus\Command.cs" />
     <Compile Include="Data\IDataContext.cs" />
-    <Compile Include="EventStore\EventBus.cs" />
     <Compile Include="Exceptions\ConcurrencyException.cs" />
     <Compile Include="Exceptions\AggregateNotFoundException.cs" />
     <Compile Include="Exceptions\NotFoundExceptions.cs" />
@@ -86,6 +85,7 @@
     <Compile Include="Models\ServiceBus\Models\Subscription.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="EventStore\" />
     <Folder Include="Handlers\" />
     <Folder Include="Services\Queries\" />
   </ItemGroup>
