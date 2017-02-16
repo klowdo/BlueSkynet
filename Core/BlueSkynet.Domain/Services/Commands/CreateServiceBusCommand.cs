@@ -32,7 +32,7 @@ namespace BlueSkynet.Domain.Services.Commands
         {
             var item = new ServiceBusItem(
                 id: message.Id,
-                connectionstring: message.ConnectionString,
+                connectionString: message.ConnectionString,
                 name: message.Name);
             _repository.Save(item, 0);
         }
@@ -40,9 +40,9 @@ namespace BlueSkynet.Domain.Services.Commands
 
     //public class CreateServiceBusCommand : ICommand<CreateServiceBusCommandArgs>
     //{
-    //    private readonly IRepository<Models.Events.ServiceBus.ServiceBus> _serviceBusRepository;
+    //    private readonly IRepository<Models.Events.ServiceBusItem.ServiceBusItem> _serviceBusRepository;
 
-    //    public CreateServiceBusCommand(IRepository<Models.Events.ServiceBus.ServiceBus> serviceBusRepository)
+    //    public CreateServiceBusCommand(IRepository<Models.Events.ServiceBusItem.ServiceBusItem> serviceBusRepository)
     //    {
     //        _serviceBusRepository = serviceBusRepository;
     //    }
@@ -50,7 +50,7 @@ namespace BlueSkynet.Domain.Services.Commands
     //    public void Execute(CreateServiceBusCommandArgs args)
     //    {
     //        args.ThrowIfNull(nameof(args));
-    //        var item = new ServiceBus(args.Name);
+    //        var item = new ServiceBusItem(args.Name);
     //        _serviceBusRepository.Save(item, 0);
     //    }
     //}

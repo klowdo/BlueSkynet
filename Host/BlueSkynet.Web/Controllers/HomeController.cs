@@ -53,12 +53,6 @@ namespace BlueSkynet.Web.Controllers
             return View(items);
         }
 
-        //public IActionResult ServiceBus(Guid id)
-        //{
-        //    var item = _serviceBusByIdQuery.Execute(new ServiceBusByIdQueryArgs(id));
-        //    return View(item);
-        //}
-
         public IActionResult Error()
         {
             return View();

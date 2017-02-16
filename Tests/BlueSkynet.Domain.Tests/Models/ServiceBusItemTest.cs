@@ -13,7 +13,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void Apply_NonValidNameAndConectionstring_ThrowsArgumentException()
         {
             Assert.That(() => new ServiceBusItem(Guid.NewGuid(), null, null), Throws.ArgumentNullException.With.Message.Contain("name"));
-            Assert.That(() => new ServiceBusItem(Guid.NewGuid(), null, "Test"), Throws.ArgumentNullException.With.Message.Contain("ConnectionString"));
+            Assert.That(() => new ServiceBusItem(Guid.NewGuid(), null, "Test"), Throws.ArgumentNullException.With.Message.Contain("connectionString"));
         }
 
         [Theory, AutoFakeItEasyData]
