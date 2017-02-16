@@ -11,7 +11,7 @@ namespace BlueSkynet.Domain.Tests.Models
     {
         [Theory, AutoFakeItEasyData]
         public void When_Try_To_AddQueue_With_Empty_NameOrNull__ArgumentException_Is_Thrown(
-          ServiceBusItem sut)
+          ServiceBus sut)
         {
             Assert.That(() => sut.AddQueue(""), Throws.ArgumentException.With.Message.Contain("name"));
             Assert.That(() => sut.AddQueue(null), Throws.ArgumentNullException.With.Message.Contain("name"));
@@ -22,7 +22,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
            Guid id, string value)
         {
-            var sut = new ServiceBusItem(id, value, value);
+            var sut = new ServiceBus(id, value, value);
             sut.AddQueue(value);
             Assert.That(() => sut.AddQueue(value), Throws.InvalidOperationException);
         }
@@ -31,7 +31,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void When_Try_To_Update_QueueCount_And_Queue_Does_Not_Exsist_Throw_NotFoundException(
           string name)
         {
-            var sut = new ServiceBusItem();
+            var sut = new ServiceBus();
 
             Assert.That(() => sut.UpdateDeadLetterQueueCount(name, 1), Throws.TypeOf<NotFoundException>());
         }
@@ -40,7 +40,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void When_Try_To_Update_QueueCount_And_Queue_Count_IsNegative_Throw_InvalidOperationException()
         {
             const string name = "MyQUEUE";
-            var sut = new ServiceBusItem();
+            var sut = new ServiceBus();
             sut.AddQueue(name);
 
             Assert.That(() => sut.UpdateQueueCount(name, -3), Throws.InvalidOperationException.With.Message.Contain("negative"));
@@ -51,7 +51,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void When_Try_To_Update_QueueCount_MustApplyEvent()
         {
             const string name = "MyQUEUE";
-            var sut = new ServiceBusItem();
+            var sut = new ServiceBus();
             sut.AddQueue(name);
             sut.UpdateQueueCount(name, 3);
             sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusQueueCountChange));
@@ -61,7 +61,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void When_Try_To_Update_DeadLetterQueueCount_MustApplyEvent()
         {
             const string name = "MyQUEUE";
-            var sut = new ServiceBusItem();
+            var sut = new ServiceBus();
             sut.AddQueue(name);
             sut.UpdateDeadLetterQueueCount(name, 3);
             sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusDeadLetterQueueCountChanged));
@@ -71,7 +71,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void When_Try_To_RemoveQueue_QueueNameDoesNotExsist_Throws_NotFound()
         {
             const string name = "MyQUEUE";
-            var sut = new ServiceBusItem();
+            var sut = new ServiceBus();
 
             Assert.That(() => sut.RemoveQueue(name), Throws.TypeOf<NotFoundException>());
         }
@@ -80,7 +80,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void When_Try_To_RemoveQueue_Queue_Does_Not_Exsist_After()
         {
             const string name = "MyQUEUE";
-            var sut = new ServiceBusItem();
+            var sut = new ServiceBus();
             sut.AddQueue(name);
 
             sut.RemoveQueue(name);
