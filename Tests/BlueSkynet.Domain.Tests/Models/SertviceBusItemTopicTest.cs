@@ -23,7 +23,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.AddTopic("ValidName");
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicCreated));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicCreated));
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.AddTopic(validName);
 
-            Assert.IsTrue(sut.Topics.Exists(x => x.Name.Equals(validName)));
+            Assert.IsTrue(sut.State.Topics.Exists(x => x.Name.Equals(validName)));
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.AddTopicSubscriber(validName, validName);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberCreated));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberCreated));
         }
 
         [Test]
@@ -123,7 +123,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.UpdateTopicSubsciberQueueCount(validName, validName, 3);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberQueueCountChanged));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberQueueCountChanged));
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.UpdateTopicSubsciberQueueCount(validName, validName, 3);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberQueueCountChanged));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberQueueCountChanged));
         }
 
         [Test]
@@ -147,7 +147,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.RemoveTopic(validName);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicRemoved));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicRemoved));
         }
 
         [Test]
@@ -158,7 +158,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.RemoveTopicSubscriber(validName, validName);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberRemoved));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusTopicSubscriberRemoved));
         }
     }
 }

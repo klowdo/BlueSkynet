@@ -21,28 +21,29 @@ namespace BlueSkynet.Domain.Services.Commands
 
     public class CreateServiceBusCommandHandler : ICommand<CreateServiceBusCommand>
     {
-        private readonly IRepository<ServiceBusItem> _repository;
+        private readonly IRepository<ServiceBusState> _repository;
 
-        public CreateServiceBusCommandHandler(IRepository<ServiceBusItem> repository)
+        public CreateServiceBusCommandHandler(IRepository<ServiceBusState> repository)
         {
             _repository = repository;
         }
 
         public void Execute(CreateServiceBusCommand message)
         {
-            var item = new ServiceBusItem(
+            var item = new ServiceBus(
                 id: message.Id,
                 connectionString: message.ConnectionString,
                 name: message.Name);
-            _repository.Save(item, 0);
+
+            _repository.Save(item.State, 0);
         }
     }
 
     //public class CreateServiceBusCommand : ICommand<CreateServiceBusCommandArgs>
     //{
-    //    private readonly IRepository<Models.Events.ServiceBusItem.ServiceBusItem> _serviceBusRepository;
+    //    private readonly IRepository<Models.Events.ServiceBus.ServiceBus> _serviceBusRepository;
 
-    //    public CreateServiceBusCommand(IRepository<Models.Events.ServiceBusItem.ServiceBusItem> serviceBusRepository)
+    //    public CreateServiceBusCommand(IRepository<Models.Events.ServiceBus.ServiceBus> serviceBusRepository)
     //    {
     //        _serviceBusRepository = serviceBusRepository;
     //    }
@@ -50,7 +51,7 @@ namespace BlueSkynet.Domain.Services.Commands
     //    public void Execute(CreateServiceBusCommandArgs args)
     //    {
     //        args.ThrowIfNull(nameof(args));
-    //        var item = new ServiceBusItem(args.Name);
+    //        var item = new ServiceBus(args.Name);
     //        _serviceBusRepository.Save(item, 0);
     //    }
     //}

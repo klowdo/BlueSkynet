@@ -47,6 +47,7 @@
     <Compile Include="Exceptions\AggregateNotFoundException.cs" />
     <Compile Include="Exceptions\NotFoundExceptions.cs" />
     <Compile Include="Extentions\ObjectiExtention.cs" />
+    <Compile Include="Models\DomainBase.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Bus\Handler.cs" />
     <Compile Include="Bus\ICommandSender.cs" />
@@ -68,11 +69,12 @@
     <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberDeadLetterQueueCountChanged.cs" />
     <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberQueueCountChanged.cs" />
     <Compile Include="Models\ServiceBus\Events\ServiceBusTopicSubscriberRemoved.cs" />
-    <Compile Include="Models\ServiceBus\ServiceBusItem.cs" />
+    <Compile Include="Models\ServiceBus\ServiceBus.cs" />
     <Compile Include="Models\ServiceBus\Models\BaseQueue.cs" />
     <Compile Include="Models\ServiceBus\Models\ServiceBusDto.cs" />
     <Compile Include="Models\ServiceBus\Models\Topic.cs" />
     <Compile Include="Models\ServiceBus\Models\Filter.cs" />
+    <Compile Include="Models\ServiceBus\ServiceBusState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ServiceBus\Models\Queue.cs" />
     <Compile Include="Models\Entity.cs" />

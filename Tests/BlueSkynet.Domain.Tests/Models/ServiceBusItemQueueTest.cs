@@ -19,7 +19,6 @@ namespace BlueSkynet.Domain.Tests.Models
 
         [Theory, AutoFakeItEasyData]
         public void When_Try_To_Add_Queue_That_Alredy_Exsist_InvalidOperationExceptionn_Is_Thrown(
-
            Guid id, string value)
         {
             var sut = new ServiceBus(id, value, value);
@@ -54,7 +53,7 @@ namespace BlueSkynet.Domain.Tests.Models
             var sut = new ServiceBus();
             sut.AddQueue(name);
             sut.UpdateQueueCount(name, 3);
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusQueueCountChange));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusQueueCountChange));
         }
 
         [Test]
@@ -64,7 +63,7 @@ namespace BlueSkynet.Domain.Tests.Models
             var sut = new ServiceBus();
             sut.AddQueue(name);
             sut.UpdateDeadLetterQueueCount(name, 3);
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusDeadLetterQueueCountChanged));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusDeadLetterQueueCountChanged));
         }
 
         [Test]
@@ -85,7 +84,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             sut.RemoveQueue(name);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusQueueRemoved));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusQueueRemoved));
         }
     }
 }
