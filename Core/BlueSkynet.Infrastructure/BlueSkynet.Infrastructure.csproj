@@ -99,6 +99,7 @@
     <Compile Include="Queries\ServiceBus\ServiceBusByIdQuery.cs" />
     <Compile Include="Queries\ServiceBus\ServiceBusQuery.cs" />
     <Compile Include="ReadModels\ReadModelBase.cs" />
+    <Compile Include="ReadModels\ServiceBus\ServiceBusConnectionRm.cs" />
     <Compile Include="ReadModels\ServiceBus\ServiceBusDetaileItemRm.cs" />
     <Compile Include="ReadModels\ServiceBus\ServiceBusNameRM.cs" />
     <Compile Include="ReadModels\ServiceBus\ServiceBusQueue.cs" />
