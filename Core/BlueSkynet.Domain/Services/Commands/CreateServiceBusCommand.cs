@@ -21,20 +21,21 @@ namespace BlueSkynet.Domain.Services.Commands
 
     public class CreateServiceBusCommandHandler : ICommand<CreateServiceBusCommand>
     {
-        private readonly IRepository<ServiceBusItem> _repository;
+        private readonly IRepository<ServiceBusState> _repository;
 
-        public CreateServiceBusCommandHandler(IRepository<ServiceBusItem> repository)
+        public CreateServiceBusCommandHandler(IRepository<ServiceBusState> repository)
         {
             _repository = repository;
         }
 
         public void Execute(CreateServiceBusCommand message)
         {
-            var item = new ServiceBusItem(
+            var item = new ServiceBus(
                 id: message.Id,
-                connectionstring: message.ConnectionString,
+                connectionString: message.ConnectionString,
                 name: message.Name);
-            _repository.Save(item, 0);
+
+            _repository.Save(item.State, 0);
         }
     }
 

@@ -12,17 +12,17 @@ namespace BlueSkynet.Domain.Tests.Models
         [Test]
         public void Apply_NonValidNameAndConectionstring_ThrowsArgumentException()
         {
-            Assert.That(() => new ServiceBusItem(Guid.NewGuid(), null, null), Throws.ArgumentNullException.With.Message.Contain("name"));
-            Assert.That(() => new ServiceBusItem(Guid.NewGuid(), null, "Test"), Throws.ArgumentNullException.With.Message.Contain("ConnectionString"));
+            Assert.That(() => new ServiceBus(Guid.NewGuid(), null, null), Throws.ArgumentNullException.With.Message.Contain("name"));
+            Assert.That(() => new ServiceBus(Guid.NewGuid(), null, "Test"), Throws.ArgumentNullException.With.Message.Contain("connectionString"));
         }
 
         [Theory, AutoFakeItEasyData]
         public void Apply_ValidNameAndConectionstring_SetsId(
             Guid id, string value)
         {
-            var sut = new ServiceBusItem(id, value, value);
-            Assert.IsTrue(sut.GetUncommittedChanges().Any(x => x is ServiceBusCreated));
-            Assert.That(id, Is.EqualTo(sut.Id));
+            var sut = new ServiceBus(id, value, value);
+            Assert.IsTrue(sut.State.GetUncommittedChanges().Any(x => x is ServiceBusCreated));
+            Assert.That(id, Is.EqualTo(sut.State.Id));
         }
 
         [Theory, AutoFakeItEasyData]
@@ -30,7 +30,7 @@ namespace BlueSkynet.Domain.Tests.Models
 
             Guid id, string value)
         {
-            var sut = new ServiceBusItem(id, value, value);
+            var sut = new ServiceBus(id, value, value);
             sut.Deactivate();
             Assert.That(() => sut.Deactivate(), Throws.InvalidOperationException);
         }
@@ -39,7 +39,7 @@ namespace BlueSkynet.Domain.Tests.Models
         public void ChangeName_NullName_ThrowsArgumentException(
            Guid id, string value)
         {
-            var sut = new ServiceBusItem(id, value, value);
+            var sut = new ServiceBus(id, value, value);
             Assert.That(() => sut.ChangeName(null), Throws.ArgumentNullException.With.Message.Contain("name"));
             Assert.That(() => sut.ChangeName(""), Throws.ArgumentException.With.Message.Contain("name"));
         }
@@ -48,11 +48,11 @@ namespace BlueSkynet.Domain.Tests.Models
         public void ChangeName_ValidName_AppliesEvent(
            Guid id, string value)
         {
-            var sut = new ServiceBusItem(id, value, value);
+            var sut = new ServiceBus(id, value, value);
 
             sut.ChangeName(value);
 
-            sut.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusRenamed));
+            sut.State.GetUncommittedChanges().AssertContainsEvent(typeof(ServiceBusRenamed));
         }
     }
 }
