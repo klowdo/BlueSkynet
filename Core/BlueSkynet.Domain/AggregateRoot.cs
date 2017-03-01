@@ -1,8 +1,6 @@
-﻿using BlueSkynet.Domain.Bus;
+﻿using BlueSkynet.Domain.Models;
 using System;
 using System.Collections.Generic;
-using BlueSkynet.Domain.Models;
-using BlueSkynet.Domain.Models.ServiceBus.Events;
 
 namespace BlueSkynet.Domain
 {
@@ -28,7 +26,7 @@ namespace BlueSkynet.Domain
             foreach (var e in history) ApplyChange(e, false);
         }
 
-        protected void ApplyChange(Event @event)
+        public void ApplyChange(Event @event)
         {
             ApplyChange(@event, true);
         }
