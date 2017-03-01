@@ -2,6 +2,7 @@
 using BlueSkynet.Domain.Data;
 using BlueSkynet.Domain.Models;
 using BlueSkynet.Domain.Models.ServiceBus.Events;
+using System;
 
 namespace BlueSkynet.Infrastructure.ReadModels.ServiceBus
 {
@@ -11,8 +12,9 @@ namespace BlueSkynet.Infrastructure.ReadModels.ServiceBus
         {
         }
 
-        public ServiceBusConnectionRm(string name, string connectionString)
+        public ServiceBusConnectionRm(Guid id, string name, string connectionString)
         {
+            Id = id;
             Name = name;
             ConnectionString = connectionString;
         }
@@ -23,7 +25,7 @@ namespace BlueSkynet.Infrastructure.ReadModels.ServiceBus
 
     public class ServiveBusConnectionView :
         ReadModelBase<ServiceBusConnectionRm>,
-         IHandles<ServiceBusCreated>,
+        IHandles<ServiceBusCreated>,
         IHandles<ServiceBusRenamed>
     {
         public ServiveBusConnectionView(IDataContext db) : base(db)
@@ -33,6 +35,7 @@ namespace BlueSkynet.Infrastructure.ReadModels.ServiceBus
         public void Handle(ServiceBusCreated message)
         {
             Insert(new ServiceBusConnectionRm(
+                id: message.Id,
                 name: message.Name,
                 connectionString: message.ConnectionString
                 ));

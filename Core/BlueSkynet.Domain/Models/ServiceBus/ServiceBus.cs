@@ -8,6 +8,14 @@ namespace BlueSkynet.Domain.Models.ServiceBus
 {
     public class ServiceBus : DomainBase<ServiceBusState>
     {
+        public new static ServiceBus CreateFromState(ServiceBusState state) =>
+             new ServiceBus(state);
+
+        protected ServiceBus(ServiceBusState state)
+        {
+            base.CreateFromState(state);
+        }
+
         public ServiceBus()
         {
         }

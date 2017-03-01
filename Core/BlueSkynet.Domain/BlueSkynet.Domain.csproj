@@ -47,6 +47,7 @@
     <Compile Include="Exceptions\AggregateNotFoundException.cs" />
     <Compile Include="Exceptions\NotFoundExceptions.cs" />
     <Compile Include="Extentions\ObjectiExtention.cs" />
+    <Compile Include="Messages\UpdateServiceBusMessage.cs" />
     <Compile Include="Models\DomainBase.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Bus\Handler.cs" />
@@ -79,12 +80,17 @@
     <Compile Include="Models\ServiceBus\Models\Queue.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Services\Commands\AddQueueCommand.cs" />
     <Compile Include="Services\Commands\CreateServiceBusCommand.cs" />
     <Compile Include="Services\Commands\IAsyncCommand.cs" />
     <Compile Include="Services\Commands\ICommand.cs" />
+    <Compile Include="Services\IMessagePublisher.cs" />
     <Compile Include="Services\ISerializer.cs" />
+    <Compile Include="Services\IServiceBusProvider.cs" />
     <Compile Include="Services\IServiceFactory.cs" />
     <Compile Include="Models\ServiceBus\Models\Subscription.cs" />
+    <Compile Include="Messages\QueueMessage.cs" />
+    <Compile Include="Messages\TopicMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="EventStore\" />

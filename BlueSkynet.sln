@@ -28,6 +28,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusWatcher", "Jobs\ServiceBusWatcher\ServiceBusWatcher.csproj", "{BA7B6C29-C8FB-4854-B0D3-CAD72AFD026D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueSkynet.Infrastructure.Tests", "BlueSkynet.Infrastructure.Tests\BlueSkynet.Infrastructure.Tests.csproj", "{6CC50E5C-D508-42FC-8EB4-1AF08538964A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +62,14 @@ Global
 		{11FA3582-B319-4BE2-B913-EEA00126DB08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11FA3582-B319-4BE2-B913-EEA00126DB08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11FA3582-B319-4BE2-B913-EEA00126DB08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA7B6C29-C8FB-4854-B0D3-CAD72AFD026D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7B6C29-C8FB-4854-B0D3-CAD72AFD026D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7B6C29-C8FB-4854-B0D3-CAD72AFD026D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7B6C29-C8FB-4854-B0D3-CAD72AFD026D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC50E5C-D508-42FC-8EB4-1AF08538964A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC50E5C-D508-42FC-8EB4-1AF08538964A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC50E5C-D508-42FC-8EB4-1AF08538964A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC50E5C-D508-42FC-8EB4-1AF08538964A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +81,7 @@ Global
 		{50E800BF-2A7C-4548-9A50-5600D34F7FDA} = {C348280B-16A4-4998-B46B-3E0AF8195A27}
 		{D645778D-AD05-4FC4-980A-691794131F10} = {C348280B-16A4-4998-B46B-3E0AF8195A27}
 		{11FA3582-B319-4BE2-B913-EEA00126DB08} = {96B0FA89-9A2D-4328-884C-4E318868C320}
+		{BA7B6C29-C8FB-4854-B0D3-CAD72AFD026D} = {CBD9E44E-6232-4947-984A-C9CD35E708FC}
+		{6CC50E5C-D508-42FC-8EB4-1AF08538964A} = {C348280B-16A4-4998-B46B-3E0AF8195A27}
 	EndGlobalSection
 EndGlobal
